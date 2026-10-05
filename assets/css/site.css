@@ -445,3 +445,5 @@ a.card:hover .ico { background: var(--yellow); }
 .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
 .reveal.is-in { opacity: 1; transform: none; }
 .no-js .reveal { opacity: 1; transform: none; }
+html, body { overflow-x: clip; }
+.hero .eyebrow::before { background: var(--navy); }
