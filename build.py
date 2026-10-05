@@ -375,18 +375,27 @@ def home():
              ("user", "1 dedicated adviser", "With you from first call to completion"),
              ("heart", "Family run", "Chesterfield-based, since 1997")]
     stat_html = "".join(f'<div class="stat"><span class="ico">{ico(i)}</span><div><strong>{a}</strong><span>{b}</span></div></div>' for i, a, b in stats)
-    body = f'''<section class="hero"><div class="wrap">
-  <div class="hero__copy">
-    <span class="eyebrow">Chesterfield mortgage brokers</span>
-    <h1>Making home ownership a reality</h1>
-    <p class="hero__sub">Search <b>1,000s</b> of mortgages by spending <b>15</b> minutes talking to <b>1</b> adviser.</p>
-    <p>Whether you're a first-time buyer, remortgaging, self-employed or dealing with adverse credit, we'll work hard to find the right solution for you.</p>
-    <div class="btn-row"><a class="btn" href="{CAL_CALL}" target="_blank" rel="noopener">{ico("cal")}Book a call today</a><a class="btn btn--ghost" href="{TEL}">{ico("phone")}{PHONE}</a></div>
-    <p class="hero__note">{ico("check")}Friendly, no-pressure first conversation · Same-day appointments</p>
+    quick = [("first-time-buyer-mortgages", "key", "Buy my first home"), ("moving-house-mortgages", "box", "Move house"),
+             ("remortgaging-advice", "refresh", "Remortgage"), ("self-employed-mortgages", "brief", "I'm self-employed"),
+             ("bad-credit-mortgages", "card", "I've had credit issues"), ("buy-to-let-mortgages", "btl", "Buy to let")]
+    quick_html = "".join(f'<a class="quick__opt" href="{u}/"><span class="ico">{ico(i)}</span>{t}{ico("arrow", "quick__arr")}</a>' for u, i, t in quick)
+    body = f'''<section class="hero2"><div class="wrap">
+  <div class="hero2__grid">
+    <div class="hero2__copy">
+      <span class="eyebrow">Family-run mortgage brokers · Chesterfield</span>
+      <h1>Making home ownership a <span class="u">reality</span></h1>
+      <p class="hero2__sub">Search <b>1,000s</b> of mortgages by spending <b>15</b> minutes talking to <b>1</b> adviser.</p>
+      <p>First-time buyer, remortgaging, self-employed or turned down elsewhere — we'll work hard to get you that all-important <strong class="yes-word">YES</strong>.</p>
+      <div class="btn-row"><a class="btn btn--yellow" href="{CAL_CALL}" target="_blank" rel="noopener">{ico("cal")}Book a call today</a><a class="btn btn--ghost" href="{TEL}">{ico("phone")}{PHONE}</a></div>
+    </div>
+    <div class="hero2__panel">
+      <img src="assets/img/team.webp" alt="Mat, George and Craig — the Oxley mortgage team" width="600" height="622" fetchpriority="high">
+      <div class="hero__badge"><span class="rating__g" style="width:34px;height:34px;display:grid;place-items:center">{G_LOGO}</span><div><strong>Excellent</strong><span class="stars">★★★★★</span> 64 reviews</div></div>
+    </div>
   </div>
-  <div class="hero__media">
-    <img src="assets/img/team.webp" alt="Mat, George and Craig — the Oxley mortgage team" width="600" height="622" fetchpriority="high">
-    <div class="hero__badge"><span class="rating__g" style="width:34px;height:34px;display:grid;place-items:center">{G_LOGO}</span><div><strong>Excellent</strong><span class="stars">★★★★★</span> 64 reviews</div></div>
+  <div class="quick">
+    <p class="quick__label">What are you looking to do?</p>
+    <div class="quick__opts">{quick_html}</div>
   </div>
 </div></section>
 <section class="stats" aria-label="At a glance"><div class="wrap">{stat_html}</div></section>
