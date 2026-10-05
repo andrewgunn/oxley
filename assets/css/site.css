@@ -487,3 +487,4 @@ html, body { overflow-x: clip; }
 .stats { background: var(--cream); border-bottom: 0; }
 .stat { border-left-color: var(--line); }
 .section--navy { background: var(--navy-ink); }
+.hero2 .eyebrow { color: var(--yellow); }
